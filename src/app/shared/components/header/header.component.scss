@@ -1,0 +1,19 @@
+.header {
+    box-shadow: 0px 6px 3px rgb(155, 155, 155);
+
+    &-list {
+        list-style: none;
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+        align-items: center;
+        margin: 0 0 0 20px;
+        padding: 8px 0;
+    }
+
+    &__link {
+        text-decoration: none;
+        color: #000;
+        font-size: 20px;
+    }
+}

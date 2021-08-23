@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { LibraryRoutingModule } from './library-routing.module';
 import { LibraryComponent } from './pages/library.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { LibraryComponent } from './pages/library.component';
   ],
   imports: [
     CommonModule,
-    LibraryRoutingModule
+    LibraryRoutingModule,
+    SharedModule
   ]
 })
 export class LibraryModule { }
