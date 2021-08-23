@@ -1,0 +1,18 @@
+$bg-main-color: rgb(238, 237, 237);
+
+.library {
+    background-color: $bg-main-color;
+    height: 100%;
+
+    &-games {
+      display: flex;
+      flex-flow: row wrap; 
+      gap: 20px;
+      
+      &__card {
+          width: 272px;
+          height: 500px;
+          background-color: aqua;
+      }
+    }
+}

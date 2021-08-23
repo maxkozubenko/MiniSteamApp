@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import '~normalize.css';
+
+div[class$='wrapper'] {
+    width: 1200px;
+    margin: 0 auto;
+}
