@@ -3,9 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginModule } from './features/login/login.module';
-import { ProfileModule } from './features/profile/profile.module';
-import { LibraryModule } from './features/library/library.module';
+import { LoginModule } from './components/login/login.module';
+import { ProfileModule } from './components/profile/profile.module';
+import { LibraryModule } from './components/library/library.module';
+import { FriendsModule } from './components/friends/friends.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LibraryModule } from './features/library/library.module';
     AppRoutingModule,
     LoginModule,
     ProfileModule,
-    LibraryModule
+    LibraryModule,
+    FriendsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
