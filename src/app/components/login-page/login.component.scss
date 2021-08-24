@@ -44,16 +44,6 @@ $bg-button: rgba(108, 105, 255);
                 font-family: 'Roboto', sans-serif;
                 border-radius: 4px;
             }
-
-            &__btn {
-                background-color: $bg-button;
-                color: #fff;
-                padding: 8px;
-                margin-top: 20px;
-                border: none;
-                border-radius: 4px;
-                box-shadow: 0px 0px 10px rgb(155, 155, 155);
-            }
         }
     }
 }

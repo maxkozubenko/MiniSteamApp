@@ -9,19 +9,23 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule),
+    loadChildren: () => import('./components/login-page/login.module').then(m => m.LoginModule),
   },
   {
     path: 'profile',
-    loadChildren: () => import('./components/profile/profile.module').then(m => m.ProfileModule),
+    loadChildren: () => import('./components/profile-page/profile.module').then(m => m.ProfileModule),
   },
   {
     path: 'library',
-    loadChildren: () => import('./components/library/library.module').then(m => m.LibraryModule),
+    loadChildren: () => import('./components/library-page/library.module').then(m => m.LibraryModule),
   },
   {
     path: 'friends',
-    loadChildren: () => import('./components/friends/friends.module').then(m => m.FriendsModule),
+    loadChildren: () => import('./components/friends-page/friends.module').then(m => m.FriendsModule),
+  },
+  {
+    path: 'games',
+    loadChildren: () => import('./components/games-page/games.module').then(m => m.GamesModule),
   }
 ];
 

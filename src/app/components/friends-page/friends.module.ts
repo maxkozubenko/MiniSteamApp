@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LibraryRoutingModule } from './library-routing.module';
-import { LibraryComponent } from './pages/library.component';
+import { FriendsRoutingModule } from './friends-routing.module';
+import { FriendsComponent } from './friends.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    LibraryComponent
+    FriendsComponent
   ],
   imports: [
     CommonModule,
-    LibraryRoutingModule,
+    FriendsRoutingModule,
     SharedModule
   ]
 })
-export class LibraryModule { }
+export class FriendsModule { }

@@ -2,17 +2,9 @@ $bg-main-color: rgb(238, 237, 237);
 
 .library {
     background-color: $bg-main-color;
-    height: 100%;
-    padding-top: 64px;
-
-    &-block {
-        background-color: #fff;
-        height: auto;
-        border-radius: 4px;
-        box-shadow: 0px 10px 10px rgb(155, 155, 155);
-        padding: 20px 60px;
-        min-height: 100vh;
-    }
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 60px);
 
     &__header {
         margin: 0 0 20px 0;

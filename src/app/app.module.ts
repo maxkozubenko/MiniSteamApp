@@ -3,10 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginModule } from './components/login/login.module';
-import { ProfileModule } from './components/profile/profile.module';
-import { LibraryModule } from './components/library/library.module';
-import { FriendsModule } from './components/friends/friends.module';
+import { LoginModule } from './components/login-page/login.module';
+import { ProfileModule } from './components/profile-page/profile.module';
+import { LibraryModule } from './components/library-page/library.module';
+import { FriendsModule } from './components/friends-page/friends.module';
+import { GamesModule } from './components/games-page/games.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FriendsModule } from './components/friends/friends.module';
     LoginModule,
     ProfileModule,
     LibraryModule,
-    FriendsModule
+    FriendsModule,
+    GamesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

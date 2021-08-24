@@ -2,7 +2,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import '~normalize.css';
 
+$bg-button: rgba(108, 105, 255);
+
 div[class$='wrapper'] {
     width: 1200px;
     margin: 0 auto;
+}
+
+button[class$='__btn'] {
+    background-color: $bg-button;
+    color: #fff;
+    padding: 8px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgb(155, 155, 155);
+}
+
+input[class$='__text'] {
+    padding: 8px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgb(155, 155, 155);
+}
+
+div[class$='-block'] {
+    width: 1200px;
+    background-color: #fff;
+    margin-top: 64px;
+    padding: 20px 60px;
+    border-radius: 4px;
+    box-shadow: 0px 10px 10px rgb(155, 155, 155);
 }

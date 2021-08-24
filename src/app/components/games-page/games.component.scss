@@ -1,0 +1,99 @@
+.games {
+    background-color: rgb(238, 237, 237);
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 60px);
+
+    &__header,
+    &__subtitle{
+        font-weight: normal;
+        font-size: 24px;
+    }
+
+    &-form {
+        display: flex;
+        flex-flow: row wrap;
+
+        &__label {
+            display: block;
+            width: 100%;
+        }
+
+        &__text {
+            flex-grow: 2;
+        }
+    
+        &__btn {
+            margin-left: 10px;
+        }
+    }
+
+    &-library,
+    &-galery {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    &-galery {
+        width: 75%;
+        flex-wrap: wrap;
+        padding-right: 10px;
+        border-right: 3px solid rgb(160, 160, 160); 
+    }
+
+    &-game {
+        display: flex;
+        flex-flow: column nowrap;
+        width: 272px;
+        border-radius: 4px;
+        box-shadow: 0px 0px 10px rgb(155, 155, 155);
+        position: relative;
+
+        &__info {
+            padding: 10px;
+        }
+
+        &__btn {
+            width: 100%;
+        }
+
+        &__name {
+            position: absolute;
+            font-size: 24px;
+            margin: 0;
+            color: #fff;
+            top: 8px;
+            left: 8px;
+            font-weight: normal;
+        }
+
+        &__price {
+            position: absolute;
+            font-size: 24px;
+            color: #fff;
+            top: 110px;
+            right: 8px;
+        }
+    }
+
+    &-filter {
+        width: 25%;
+        display: flex;
+        flex-flow: column nowrap;
+
+        &__titlePrice,
+        &__titleTag {
+            font-weight: normal;
+            font-size: 24px;
+        }
+
+        &__label {
+            margin: 10px 0 10px 20px;
+
+            &_center {
+                text-align: center;
+            }
+        }
+    }
+}

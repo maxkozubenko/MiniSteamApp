@@ -1,0 +1,61 @@
+$bg-main-color: rgb(238, 237, 237);
+
+.friends {
+    background-color: $bg-main-color;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 60px);
+
+    &__header {
+        margin: 0 0 20px 0;
+        font-weight: normal;
+    }
+
+    &-form {
+        display: flex;
+        flex-flow: row wrap;
+
+        &__label {
+            display: block;
+            width: 100%;
+        }
+
+        &__text {
+            flex-grow: 2;
+        }
+    
+        &__btn {
+            margin-left: 10px;
+        }
+    }
+
+    &__title {
+        font-weight: normal;
+        font-size: 24px;
+    }
+
+    &-list {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+    &-user {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 4px;
+        box-shadow: 0px 6px 6px rgb(155, 155, 155);
+        margin: 10px 0;
+        
+        &__btn {
+            margin: 8px 8px 8px 0;
+            background-color: rgb(255, 111, 111);
+        }
+
+        &__nickname {
+            display: inline-block;
+            margin: 8px 0 8px 8px;
+        }
+    }
+}
