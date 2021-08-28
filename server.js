@@ -1,30 +1,41 @@
-// const express = require('express');
-// const path = require('path');
-// const app = express();
+const express = require('express');
+const path = require('path');
+const cors = require('cors');
+const morgan = require('morgan');
+const mongoose = require('mongoose');
+const app = express();
+const port = process.env.PORT || 8080;
+require('dotenv').config();
 
-// // app.use(express.static(__dirname, '/dist/MiniSteamCICDApp'));
+const authRouter = require('./controllers/authController');
+const gamesController = require('./controllers/gamesController');
+const userController = require('./controllers/userController');
+const {authMiddleware} = require('./middlewares/authMiddleware');
 
-// // app.get('/', function (req, res) {
-// //     res.sendFile(path.join(__dirname + '/dist/MiniSteamCICDApp/index.html'));
-// // });
+app.use(cors());
+app.use(express.json());
+app.use(morgan('tiny'));
 
-// app.get('/', function (req, res) {
-//     res.send('Hello World');
-// });
+app.use(express.static(__dirname + '/dist/MiniSteamCICDApp'));
 
-// app.listen(process.env.PORT || 8080);
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname + '/dist/MiniSteamCICDApp/indexedDB.html'));
+});
 
-const express = require('express')
-const app = express()
-const port = 3000
+app.use('/api/auth', authRouter);
+app.use('/api', [authMiddleware], gamesController);
+app.use('/api', [authMiddleware], userController);
 
-app.get('/', (request, response) => {
-    // response.send('Hello from Express!')
-})
-
-app.listen(port, (err) => {
-    if (err) {
-        return console.log('something bad happened', err)
+const start = async () => {
+    try {
+      await mongoose.connect('mongodb+srv://uberTruck:uberTruck@cluster0.qsokx.mongodb.net/myFirstDatabase?authSource=admin&replicaSet=atlas-bnw047-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true', {
+        useNewUrlParser: true, useUnifiedTopology: true,
+      });
+  
+      app.listen(port);
+    } catch (err) {
+      console.log(`Error on server startup: ${err.message}`);
     }
-    console.log(`server is listening on ${port}`)
-})
+};
+
+start();
