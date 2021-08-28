@@ -24,6 +24,17 @@ $bg-main-color: rgb(238, 237, 237);
         width: 272px;
         border-radius: 4px;
         box-shadow: 0px 0px 10px rgb(155, 155, 155);
+        position: relative;
+
+        &__name {
+            position: absolute;
+            font-size: 24px;
+            margin: 0;
+            color: #fff;
+            top: 8px;
+            left: 8px;
+            font-weight: normal;
+        }
     }
 
     &__img {
@@ -60,6 +71,12 @@ $bg-main-color: rgb(238, 237, 237);
         &_blue {
             background-color: rgba(108, 105, 255, 1);
             color: #fff;
+        }
+
+        &:hover {
+            background-color: rgb(104, 253, 104);
+            transition-duration: 1s;
+            cursor: pointer;
         }
     }
 }

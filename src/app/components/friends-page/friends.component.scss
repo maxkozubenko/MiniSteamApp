@@ -23,6 +23,11 @@ $bg-main-color: rgb(238, 237, 237);
 
         &__text {
             flex-grow: 2;
+            padding: 8px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 4px;
+            box-shadow: 0px 0px 10px rgb(155, 155, 155);
         }
     
         &__btn {

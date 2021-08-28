@@ -68,9 +68,41 @@ export class HttpService {
     return res$;
   }
 
-  getGamesByTag(param: paramInterface) {
+  getGamesByTag$ (param: paramInterface) {
     const requestParam = `?price=${param.price*9}&indie=${param.indie}&action=${param.action}&adventure=${param.adventure}`;
     const res$ = this.http.get(`http://localhost:8080/api/games/filter${requestParam}`);
     return res$;
+  }
+
+  addGameToUser$ (gameId: string) {
+    const res$ = this.http.post(`http://localhost:8080/api/user/games/add`, {gameId});
+    return res$;
+  }
+
+  getUsersGames$ () {
+    const res$ = this.http.get('http://localhost:8080/api/user/games');
+    return res$;
+  }
+
+  findGame$ (gameName: string) {
+    const requestParam = `?gameName=${gameName}`;
+    const res$ = this.http.get(`http://localhost:8080/api/game/get${requestParam}`);
+    return res$;
+  }
+
+  getFriends$ () {
+    const res$ = this.http.get('http://localhost:8080/api/user/friends');
+    return res$;
+  }
+
+  getAllUsers$ () {
+    const res$ = this.http.get('http://localhost:8080/api/users/get');
+    console.log(res$);
+    return res$;
+  }
+
+  addFriend$ () {
+    // const res$ = this.http.post('http://localhost:8080/api/user/add/friend', body);
+    // return res$;
   }
 }

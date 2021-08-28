@@ -29,6 +29,14 @@ $bg-button: rgba(108, 105, 255);
         &-form {
             display: flex;
             flex-direction: column;
+
+            &__btn {
+                &:hover {
+                    background-color: rgb(104, 253, 104);
+                    transition-duration: 1s;
+                    cursor: pointer;
+                }
+            }
     
             &__label {
                 margin-top: 20px;

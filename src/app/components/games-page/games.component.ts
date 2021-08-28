@@ -18,6 +18,7 @@ export interface gameInterface {
 export class GamesComponent implements OnInit {
   public games: any;
   myForm: FormGroup;
+  gameForm: FormGroup;
 
   constructor(private httpService: HttpService) {
     this.myForm = new FormGroup({
@@ -25,6 +26,10 @@ export class GamesComponent implements OnInit {
       "indie": new FormControl(true),
       "action": new FormControl(true),
       "adventure": new FormControl(true),
+    });
+
+    this.gameForm = new FormGroup({
+      "name": new FormControl('', Validators.required),
     });
   }
 
@@ -35,8 +40,22 @@ export class GamesComponent implements OnInit {
   }
 
   getGamesByTags() {
-    this.httpService.getGamesByTag(this.myForm.value).subscribe(games => {
+    this.httpService.getGamesByTag$(this.myForm.value).subscribe(games => {
       this.games = Object.values(games);
+    });
+  }
+
+  addGameUser(gameId: string) {
+    this.httpService.addGameToUser$(gameId).subscribe(data => console.log('DONE', data));
+  }
+
+  getGameByName() {
+    this.httpService.findGame$(this.gameForm.value.name).subscribe(game => {
+      if(Object.keys(game).length === 0 && game.constructor === Object) {
+        this.games = [];
+      } else {
+        this.games = [game];
+      }
     });
   }
 }

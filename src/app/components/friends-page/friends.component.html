@@ -2,43 +2,18 @@
 <section class="friends">
         <div class="friends-block">
             <h1 class="friends__header">Friends</h1>
-            <form class="friends-form">
+            <form class="friends-form" [formGroup]="myForm" (ngSubmit)="getAllUsers()">
                 <label class="friends-form__label" for="search-friends">Search friends-block</label>
-                <input class="friends-form__text" type="text" name="searchFriends" id="search-friends" placeholder="Search Friends">
+                <input formControlName="emailFriend" class="friends-form__text" type="text" name="searchFriends" id="search-friends" placeholder="Search Friends">
                 <button class="friends-form__btn">Search</button>
             </form>
             <h2 class="friends__title">My Friends</h2>
             <div class="friends-list">
-                <div class="friends-user">
-                    <span class="friends-user__nickname">Maxsus</span>
-                    <button class="friends-user__btn">Remove Friend</button>
-                </div>
-                <div class="friends-user">
-                    <span class="friends-user__nickname">Maxsus</span>
-                    <button class="friends-user__btn">Remove Friend</button>
-                </div>
-                <div class="friends-user">
-                    <span class="friends-user__nickname">Maxsus</span>
-                    <button class="friends-user__btn">Remove Friend</button>
-                </div>
-                <div class="friends-user">
-                    <span class="friends-user__nickname">Maxsus</span>
-                    <button class="friends-user__btn">Remove Friend</button>
-                </div>
-                <div class="friends-user">
-                    <span class="friends-user__nickname">Maxsus</span>
-                    <button class="friends-user__btn">Remove Friend</button>
-                </div>
-                <div class="friends-user">
-                    <span class="friends-user__nickname">Maxsus</span>
+                <div class="friends-user" *ngFor="let friend of friends">
+                    <span class="friends-user__nickname">{{friend.nickname}} - {{friend.email}}</span>
                     <button class="friends-user__btn">Remove Friend</button>
                 </div>
             </div>
-            <div class="friends-list">
-                <div class="friends-user">
-                    <span class="friends-user__nickname">Maxsus</span>
-                    <button class="friends-user__btn">Add Friend</button>
-                </div>
-            </div>
+
         </div>
 </section>

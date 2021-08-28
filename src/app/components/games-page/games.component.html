@@ -2,10 +2,10 @@
 <section class="games">
     <div class="games-block">
         <h1 class="games__header">Games</h1>
-        <form class="games-form">
+        <form class="games-form" [formGroup]="gameForm" (ngSubmit)="getGameByName()">
             <label class="games-form__label" for="search-games">Search friends-block</label>
-            <input class="games-form__text" type="text" name="searchGames" id="search-games" placeholder="Search Games">
-            <button type="button" class="games-form__btn" >Search</button>
+            <input formControlName="name" class="games-form__text" type="text" name="searchGames"id="search-games" placeholder="Search Games">
+            <button class="games-form__btn">Search</button>
         </form>
         <h2 class="games__subtitle">Featured Games</h2>
         <div class="games-library">
@@ -16,7 +16,7 @@
                     <img class="games-game__img" src={{game.img}} alt="Game picture">
                     <div class="games-game__info">
                         <p class="games-game__description">{{game.description}}</p>
-                        <button class="games-game__btn">Add to Library</button>
+                        <button type="button" class="games-game__btn" (click)="addGameUser(game._id)">Add to Library</button>
                     </div>
                 </div>
             </div>
