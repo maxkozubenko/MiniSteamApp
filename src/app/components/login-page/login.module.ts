@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login.component';
 import { LoginRoutingModule } from './login-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpService } from 'src/app/services/http.service';
 
 @NgModule({
   declarations: [
@@ -9,7 +11,11 @@ import { LoginRoutingModule } from './login-routing.module';
   ],
   imports: [
     CommonModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    ReactiveFormsModule
+  ],
+  providers:[
+    HttpService
   ]
 })
 export class LoginModule { }

@@ -5,7 +5,7 @@ import { FriendsComponent } from './friends.component';
 const routes: Routes = [
   {
     path: '',
-    component: FriendsComponent 
+    component: FriendsComponent
   }
 ];
 

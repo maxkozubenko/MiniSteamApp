@@ -1,12 +1,12 @@
 <section class="background">
     <div class="login">
         <h1 class="login__header">Sign In</h1>
-        <form class="login-form">
+        <form [formGroup]="myForm" (ngSubmit)="authUser()" class="login-form">
             <label class="login-form__label" for="email">Email</label>
-            <input class="login-form__email" type="email" id="email" name="email" placeholder="Email">
+            <input class="login-form__email" type="email" id="email" name="email" placeholder="Email" formControlName="email">
             <label class="login-form__label" for="password">Password</label>
-            <input class="login-form__password" type="password" id="password" name="password" placeholder="Password">  
-            <button type="submit" class="login-form__btn">Sign In</button>
+            <input class="login-form__password" type="password" id="password" name="password" placeholder="Password" formControlName="password">  
+            <button class="login-form__btn">Sign In</button>
         </form>
     </div>
 </section>
