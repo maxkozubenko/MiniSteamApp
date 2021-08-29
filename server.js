@@ -7,10 +7,10 @@ const app = express();
 const port = process.env.PORT || 8080;
 require('dotenv').config();
 
-const authRouter = require('./controllers/authController');
-const gamesController = require('./controllers/gamesController');
-const userController = require('./controllers/userController');
-const {authMiddleware} = require('./middlewares/authMiddleware');
+const authRouter = require('./src/controllers/authController');
+const gamesController = require('./src/controllers/gamesController');
+const userController = require('./src/controllers/userController');
+const {authMiddleware} = require('./src/middlewares/authMiddleware');
 
 app.use(cors());
 app.use(express.json());
