@@ -8,6 +8,8 @@ const {
     getFriends,
     addFriend,
     getAllUsers,
+    confirmFriend,
+    rejectFriend
 } = require('../services/userService');
 
 router.get('/user/games', async (req, res) => {
@@ -80,5 +82,42 @@ router.get('/users/get', async (req, res) => {
         res.status(400).json({message: 'Error, can not get friends'});
     }
 });
+
+router.patch('/user/confirm/friend', async (req, res) => {
+    const {
+        email
+    } = req.user;
+
+    const {
+        emailFriend
+    } = req.body;
+
+    try {
+        await confirmFriend(email, emailFriend);
+        res.status(200).json({message: 'Friend confirm friendship'});
+    } catch {
+        res.status(200).json({message: 'Friend does not confirm friendship'});
+    }
+});
+
+router.patch('/user/reject/friend', async (req, res) => {
+    const {
+        email
+    } = req.user;
+
+    const {
+        emailFriend
+    } = req.body;
+
+    console.log('HERE');
+
+    try {
+        await rejectFriend(email, emailFriend);
+        res.status(200).json({message: 'Friend reject friendship'});
+    } catch {
+        res.status(400).json({message: 'Error rejecting'});
+    }
+});
+
 
 module.exports = router;

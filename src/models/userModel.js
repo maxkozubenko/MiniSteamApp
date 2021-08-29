@@ -25,6 +25,7 @@ const User = mongoose.model('User', {
     friends: [{
         email: String,
         nickname: String,
+        status: String,
     }],
 });
 

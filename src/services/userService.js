@@ -46,6 +46,7 @@ const addFriend = async (userEmail, friendEmail) => {
     user.friends.push({
         email: friend.email,
         nickname: friend.nickname,
+        status: 'pending',
     });
 
     user.save();
@@ -56,10 +57,34 @@ const getAllUsers = async () => {
     return users;
 }
 
+const confirmFriend = async (userEmail, emailFriend) => {
+    const user = await User.findOne({email: userEmail});
+
+    user.friends.find(friend => {
+        if (friend.email === emailFriend) {
+            friend.status = 'confirmed';    
+        }
+    });
+
+    user.save();
+};
+
+const rejectFriend = async (userEmail, emailFriend) => {
+    const user = await User.findOne({email: userEmail});
+
+    const userFound = await user.friends.findIndex(friend => friend.email === emailFriend);
+
+    await user.friends.splice(userFound, 1);
+
+    user.save();
+};
+
 module.exports = {
     getUserGames,
     addUserGame,
     getFriends,
     addFriend,
     getAllUsers,
+    confirmFriend,
+    rejectFriend
 }
