@@ -8,7 +8,8 @@ const routes: Routes = [
   {
     path: '',
     component: GamesComponent,
-    canActivate: [GamesGuard]
+    canActivate: [GamesGuard],
+    pathMatch: 'full'
   }
 ];
 

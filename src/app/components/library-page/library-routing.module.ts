@@ -7,7 +7,8 @@ const routes: Routes = [
   {
     path: '',
     component: LibraryComponent,
-    canActivate: [GamesGuard]
+    canActivate: [GamesGuard],
+    pathMatch: 'full'
   }
 ];
 

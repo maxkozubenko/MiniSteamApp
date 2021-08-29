@@ -7,7 +7,8 @@ const routes: Routes = [
   {
     path: '',
     component: FriendsComponent,
-    canActivate: [GamesGuard]
+    canActivate: [GamesGuard],
+    pathMatch: 'full'
   }
 ];
 
