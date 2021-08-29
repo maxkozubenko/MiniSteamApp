@@ -97,12 +97,21 @@ export class HttpService {
 
   getAllUsers$ () {
     const res$ = this.http.get('http://localhost:8080/api/users/get');
-    console.log(res$);
     return res$;
   }
 
-  addFriend$ () {
-    // const res$ = this.http.post('http://localhost:8080/api/user/add/friend', body);
-    // return res$;
+  confirmFriend$ (emailFriend: string) {
+    const res$ = this.http.patch('http://localhost:8080/api/user/confirm/friend', {emailFriend});
+    return res$;
+  }
+
+  addFriend$ (emailFriend: string) {
+    const res$ = this.http.post('http://localhost:8080/api/user/add/friend', {emailFriend});
+    return res$;
+  }
+
+  rejectFriend$ (emailFriend: string) {
+    const res$ = this.http.patch('http://localhost:8080/api/user/reject/friend', {emailFriend});
+    return res$;
   }
 }
