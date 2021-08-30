@@ -64,54 +64,54 @@ export class HttpService {
   }
 
   getGames$ () {
-    const res$ = this.http.get('http://localhost:8080/api/games');
+    const res$ = this.http.get('api/games');
     return res$;
   }
 
   getGamesByTag$ (param: paramInterface) {
     const requestParam = `?price=${param.price*9}&indie=${param.indie}&action=${param.action}&adventure=${param.adventure}`;
-    const res$ = this.http.get(`http://localhost:8080/api/games/filter${requestParam}`);
+    const res$ = this.http.get(`api/games/filter${requestParam}`);
     return res$;
   }
 
   addGameToUser$ (gameId: string) {
-    const res$ = this.http.post(`http://localhost:8080/api/user/games/add`, {gameId});
+    const res$ = this.http.post(`api/user/games/add`, {gameId});
     return res$;
   }
 
   getUsersGames$ () {
-    const res$ = this.http.get('http://localhost:8080/api/user/games');
+    const res$ = this.http.get('api/user/games');
     return res$;
   }
 
   findGame$ (gameName: string) {
     const requestParam = `?gameName=${gameName}`;
-    const res$ = this.http.get(`http://localhost:8080/api/game/get${requestParam}`);
+    const res$ = this.http.get(`api/game/get${requestParam}`);
     return res$;
   }
 
   getFriends$ () {
-    const res$ = this.http.get('http://localhost:8080/api/user/friends');
+    const res$ = this.http.get('api/user/friends');
     return res$;
   }
 
   getAllUsers$ () {
-    const res$ = this.http.get('http://localhost:8080/api/users/get');
+    const res$ = this.http.get('api/users/get');
     return res$;
   }
 
   confirmFriend$ (emailFriend: string) {
-    const res$ = this.http.patch('http://localhost:8080/api/user/confirm/friend', {emailFriend});
+    const res$ = this.http.patch('api/user/confirm/friend', {emailFriend});
     return res$;
   }
 
   addFriend$ (emailFriend: string) {
-    const res$ = this.http.post('http://localhost:8080/api/user/add/friend', {emailFriend});
+    const res$ = this.http.post('api/user/add/friend', {emailFriend});
     return res$;
   }
 
   rejectFriend$ (emailFriend: string) {
-    const res$ = this.http.patch('http://localhost:8080/api/user/reject/friend', {emailFriend});
+    const res$ = this.http.patch('api/user/reject/friend', {emailFriend});
     return res$;
   }
 }
