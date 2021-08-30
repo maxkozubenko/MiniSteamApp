@@ -37,7 +37,7 @@ export class HttpService {
    }
 
   loginUser (userLogin: userLoginInterface){
-    const res = this.http.post('http://localhost:8080/api/auth/login', userLogin);
+    const res = this.http.post('api/auth/login', userLogin);
 
     res.subscribe(data => {
       const res = Object.entries(data)[1];
@@ -53,7 +53,7 @@ export class HttpService {
 
   resetUserProfile(userReset: userResetInterface) {
     console.log(userReset);
-    this.http.patch('http://localhost:8080/api/auth/update', userReset).subscribe(
+    this.http.patch('api/auth/update', userReset).subscribe(
       res => { 
         console.log('received ok response from patch request');
       },
