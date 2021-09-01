@@ -75,8 +75,12 @@ router.post('/user/add/friend', async (req, res) => {
 });
 
 router.get('/users/get', async (req, res) => {
+    const {
+        email
+    } = req.user;
+
     try {
-        const users = await getAllUsers();
+        const users = await getAllUsers(email);
         res.status(200).json(users);
     } catch {
         res.status(400).json({message: 'Error, can not get friends'});

@@ -52,8 +52,17 @@ const addFriend = async (userEmail, friendEmail) => {
     user.save();
 };
 
-const getAllUsers = async () => {
-    const users = User.find();
+const getAllUsers = async (userEmail) => {
+    const userFriends = await User.findOne({email: userEmail});
+    
+    let arrFriendEmailStr = [userEmail];
+    for (let i = 0; i < userFriends.friends.length; i++) {
+        arrFriendEmailStr.push(userFriends.friends[i].email);
+    }
+    console.log('HERE', arrFriendEmailStr);
+
+    const users = await User.find({email: {$nin: arrFriendEmailStr}});
+    // console.log(users);
     return users;
 }
 
