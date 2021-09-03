@@ -53,16 +53,7 @@ export class GamesComponent implements OnInit {
       if(Object.keys(games).length === 0 && games.constructor === Object) {
         this.games = [];
       } else {
-        console.log(games, "HET");
-        console.log(Object.values(games), "Object");
-
-        // this.games = [{
-        //   name: '123',
-        //   price: '123',
-        //   description: '123',
-        //   img: '123',
-        //   _id: '123',
-        // }];
+        this.games = [];
       }
     });
   }
