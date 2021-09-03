@@ -4,6 +4,10 @@ import { Observable } from 'rxjs';
 import { HttpService } from 'src/app/services/http.service';
 import { gameInterface} from '../../models/model';
 
+interface Game {
+
+}
+
 @Component({
   selector: 'app-games',
   templateUrl: './games.component.html',
@@ -51,7 +55,14 @@ export class GamesComponent implements OnInit {
       } else {
         console.log(games, "HET");
         console.log(Object.values(games), "Object");
-        // this.games = [games];
+
+        this.games = [{
+          name: '123',
+          price: '123',
+          description: '123',
+          img: '123',
+          _id: '123',
+        }];
       }
     });
   }
