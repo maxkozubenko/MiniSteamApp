@@ -2,14 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { HttpService } from 'src/app/services/http.service';
-
-export interface gameInterface {
-  name: string,
-  price: string,
-  description: string,
-  img: string,
-  _id: string,
-}
+import { gameInterface } from '../../models/model';
 
 @Component({
   selector: 'app-games',

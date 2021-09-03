@@ -19,3 +19,11 @@ export interface paramInterface {
     action: string,
     adventure: boolean
 }
+
+export interface gameInterface {
+    name: string,
+    price: string,
+    description: string,
+    img: string,
+    _id: string,
+}

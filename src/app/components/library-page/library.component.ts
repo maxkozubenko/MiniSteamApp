@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
+import { gameInterface } from '../../models/model';
 
 @Component({
   selector: 'app-library',
@@ -7,7 +8,7 @@ import { HttpService } from 'src/app/services/http.service';
   styleUrls: ['./library.component.scss']
 })
 export class LibraryComponent implements OnInit {
-  public games: any;
+  public games: gameInterface[] = [];
 
   constructor(private httpService: HttpService) { }
 
