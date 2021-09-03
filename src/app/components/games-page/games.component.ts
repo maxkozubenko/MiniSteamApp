@@ -56,13 +56,13 @@ export class GamesComponent implements OnInit {
         console.log(games, "HET");
         console.log(Object.values(games), "Object");
 
-        this.games = [{
-          name: '123',
-          price: '123',
-          description: '123',
-          img: '123',
-          _id: '123',
-        }];
+        // this.games = [{
+        //   name: '123',
+        //   price: '123',
+        //   description: '123',
+        //   img: '123',
+        //   _id: '123',
+        // }];
       }
     });
   }
