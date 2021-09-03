@@ -21,7 +21,7 @@ export class FriendsComponent implements OnInit {
   ngOnInit(): void {
     this.httpService.getFriends$().subscribe(friend => {
       this.friends = Object.values(friend);
-      this.getAllUsers();
+      // this.getAllUsers();
     });
   }
 

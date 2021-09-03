@@ -59,10 +59,8 @@ const getAllUsers = async (userEmail) => {
     for (let i = 0; i < userFriends.friends.length; i++) {
         arrFriendEmailStr.push(userFriends.friends[i].email);
     }
-    console.log('HERE', arrFriendEmailStr);
 
     const users = await User.find({email: {$nin: arrFriendEmailStr}});
-    // console.log(users);
     return users;
 }
 

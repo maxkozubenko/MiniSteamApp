@@ -1,30 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { toArray, take } from 'rxjs/operators';
 import { Router } from '@angular/router';
-
-export interface userLoginInterface {
-  email: string,
-  password: string
-}
-
-export interface userResetInterface {
-  nickname: string,
-  email: string,
-}
-
-export interface tokenInterface {
-  message: string,
-  jwt_token: string
-}
-
-export interface paramInterface {
-  price: number,
-  indie: boolean,
-  action: string,
-  adventure: boolean
-}
+import { userLoginInterface, userResetInterface, tokenInterface, paramInterface } from '../models/model';
 
 @Injectable({
   providedIn: 'root'
