@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from 'src/app/services/http.service';
+import { Friend } from '../../models/model'
 
 @Component({
   selector: 'app-friends',
@@ -8,8 +9,8 @@ import { HttpService } from 'src/app/services/http.service';
   styleUrls: ['./friends.component.scss']
 })
 export class FriendsComponent implements OnInit {
-  public friends: any;
-  public users: any[] = [];
+  public friends: Friend[] = [];
+  public users: Friend[] = [];
   myForm: FormGroup;
 
   constructor(private httpService: HttpService) {

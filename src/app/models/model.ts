@@ -27,3 +27,9 @@ export interface gameInterface {
     img: string,
     _id: string,
 }
+
+export interface Friend {
+    nickname: string,
+    email: string,
+    status: string
+}
