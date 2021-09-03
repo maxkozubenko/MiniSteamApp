@@ -45,11 +45,11 @@ export class GamesComponent implements OnInit {
   }
 
   getGameByName() {
-    this.httpService.findGame$(this.gameForm.value.name).subscribe(game => {
-      if(Object.keys(game).length === 0 && game.constructor === Object) {
+    this.httpService.findGame$(this.gameForm.value.name).subscribe(games => {
+      if(Object.keys(games).length === 0 && games.constructor === Object) {
         this.games = [];
       } else {
-        this.games = Object.values(game);
+        this.games = Object.values(games);
       }
     });
   }
