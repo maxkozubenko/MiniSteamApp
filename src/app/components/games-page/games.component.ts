@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { HttpService } from 'src/app/services/http.service';
-import { gameInterface } from '../../models/model';
+import { gameInterface, gameInterfaceItem } from '../../models/model';
 
 @Component({
   selector: 'app-games',
@@ -51,7 +51,7 @@ export class GamesComponent implements OnInit {
       } else {
         console.log(games, "HET");
         console.log(Object.values(games), "Object");
-        this.games = Object.values(games)[1];
+        // this.games = [games];
       }
     });
   }

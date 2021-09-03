@@ -23,7 +23,7 @@ const getGamesByTags = async (price, indie, action, adventure) => {
 }
 
 const getGame = async (gameName) => {
-    const game = await Game.findOne({name: gameName});
+    const game = await Game.find({name: gameName});
     return game;
 };
 
