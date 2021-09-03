@@ -7,7 +7,8 @@ export interface gameInterface {
   name: string,
   price: string,
   description: string,
-  img: string
+  img: string,
+  _id: string,
 }
 
 @Component({
@@ -16,7 +17,7 @@ export interface gameInterface {
   styleUrls: ['./games.component.scss']
 })
 export class GamesComponent implements OnInit {
-  public games: any;
+  public games: gameInterface[] = [];
   myForm: FormGroup;
   gameForm: FormGroup;
 
@@ -37,6 +38,7 @@ export class GamesComponent implements OnInit {
     this.httpService.getGames$().subscribe(games => {
         this.games = Object.values(games);
     });
+    console.log(this.games);
   }
 
   getGamesByTags() {
@@ -54,7 +56,7 @@ export class GamesComponent implements OnInit {
       if(Object.keys(game).length === 0 && game.constructor === Object) {
         this.games = [];
       } else {
-        this.games = [game];
+        this.games = Object.values(game);
       }
     });
   }
