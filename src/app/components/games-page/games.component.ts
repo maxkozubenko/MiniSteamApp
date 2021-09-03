@@ -51,7 +51,7 @@ export class GamesComponent implements OnInit {
       } else {
         console.log(games, "HET");
         console.log(Object.values(games), "Object");
-        this.games = Object.values(games);
+        this.games = Object.values(games)[1];
       }
     });
   }
