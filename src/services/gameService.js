@@ -26,6 +26,7 @@ const getGame = async (gameName) => {
 //     const game = await Game.find({name: gameName});
     const game2 = await Game.aggregate([
         { $match: { name: gameName } },
+        { $project : { _id : 0, name : 1, price : 1, description : 1, img: 1,  } }
     ]);
 
     // console.log(game2);
