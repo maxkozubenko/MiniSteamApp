@@ -47,7 +47,7 @@ export class GamesComponent implements OnInit {
       if(Object.keys(games).length === 0 && games.constructor === Object) {
         this.games = [];
       } else {
-        this.games = games as GameInterface[];
+        this.games = [games];
       }
     });
   }
