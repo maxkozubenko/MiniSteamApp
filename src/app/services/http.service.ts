@@ -57,9 +57,9 @@ export class HttpService {
     return this.http.get<GameInterface>('api/user/games');
   }
 
-  findGame(gameName: string): Observable<GameInterface> {
+  findGame(gameName: string): Observable<GameInterface[]> {
     const requestParam = `?gameName=${gameName}`;
-    return this.http.get<GameInterface>(`api/game/get${requestParam}`);
+    return this.http.get<GameInterface[]>(`api/game/get${requestParam}`);
   }
 
   getFriends(): Observable<Friend> {
