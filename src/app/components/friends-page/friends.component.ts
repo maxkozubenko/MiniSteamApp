@@ -12,46 +12,49 @@ export class FriendsComponent implements OnInit {
 
   friends: Friend[] = [];
   users: Friend[] = [];
+
   myForm: FormGroup;
 
   constructor(private httpService: HttpService) {
     this.myForm = new FormGroup({
-      "emailFriend": new FormControl('', Validators.required),
+      emailFriend: new FormControl('', Validators.required),
     });
    }
 
   ngOnInit(): void {
-    this.httpService.getFriends$().subscribe(friend => {
-      this.friends = Object.values(friend);
-      // this.getAllUsers();
-    });
+    this.getFriends();
   }
 
-  getAllUsers() {
+  getAllUsers(): void {
     this.httpService.getAllUsers$().subscribe(user => {
       this.users = Object.values(user);
-      console.log(this.users);
     });
   }
 
-  confirmFriend(emailFriend: string) {
+  confirmFriend(emailFriend: string): void {
     this.httpService.confirmFriend$(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
       this.ngOnInit();
     });
   }
 
-  addFriend(emailFriend: string) {
+  addFriend(emailFriend: string): void {
     this.httpService.addFriend$(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
       this.ngOnInit();
     });
   }
 
-  rejectFriend(emailFriend: string) {
+  rejectFriend(emailFriend: string): void {
     this.httpService.rejectFriend$(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
       this.ngOnInit();
+    });
+  }
+
+  getFriends(): void {
+    this.httpService.getFriends$().subscribe(friend => {
+      this.friends = Object.values(friend);
     });
   }
 }

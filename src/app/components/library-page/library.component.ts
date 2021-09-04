@@ -8,19 +8,23 @@ import { gameInterface } from '../../models/model';
   styleUrls: ['./library.component.scss']
 })
 export class LibraryComponent implements OnInit {
-  public games: gameInterface[] = [];
+
+  games: gameInterface[] = [];
 
   constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
-    this.httpService.getUsersGames$().subscribe(games => {
-      console.log(games);
-      this.games = Object.values(games);
-    });
+    this.getUsersGame();
   }
 
   alertWindow() {
-    alert('The game is not realese');
+    alert('The game is not apply');
+  }
+
+  getUsersGame() {
+    this.httpService.getUsersGames$().subscribe(games => {
+      this.games = Object.values(games);
+    });
   }
 
 }
