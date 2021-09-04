@@ -9,8 +9,9 @@ import { Friend } from '../../models/model'
   styleUrls: ['./friends.component.scss']
 })
 export class FriendsComponent implements OnInit {
-  public friends: Friend[] = [];
-  public users: Friend[] = [];
+
+  friends: Friend[] = [];
+  users: Friend[] = [];
   myForm: FormGroup;
 
   constructor(private httpService: HttpService) {
