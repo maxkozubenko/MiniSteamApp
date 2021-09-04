@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { from, Observable } from 'rxjs';
-import { toArray, take } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { userLoginInterface, userResetInterface, tokenInterface, paramInterface } from '../models/model';
 

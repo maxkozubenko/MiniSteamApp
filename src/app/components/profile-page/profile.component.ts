@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component }  from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from 'src/app/services/http.service';
 
@@ -7,25 +7,23 @@ import { HttpService } from 'src/app/services/http.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent {
+
   myForm: FormGroup;
+
   constructor(private httpService: HttpService) {
     this.myForm = new FormGroup({
-      "nickname": new FormControl('', [
+      nickname: new FormControl('', [
         Validators.required
       ]),      
-      "email": new FormControl('', [
+      email: new FormControl('', [
         Validators.required, 
         Validators.email
       ]),
     });
   }
 
-  ngOnInit(): void {
-  }
-
-  resetInfo() {
-    console.log("SEnded")
+  resetInfo(): void {
     this.httpService.resetUserProfile(this.myForm.value);
   }
 

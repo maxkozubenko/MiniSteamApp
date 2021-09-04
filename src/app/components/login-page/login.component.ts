@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from 'src/app/services/http.service';
 
@@ -7,23 +7,22 @@ import { HttpService } from 'src/app/services/http.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
-  myForm : FormGroup
+export class LoginComponent {
+
+  myForm : FormGroup;
+
   constructor(private httpService: HttpService) {
     this.myForm = new FormGroup({
-      "email": new FormControl('max@com', [
+      email: new FormControl('max@com', [
         Validators.required, 
         Validators.email
       ]),      
-      "password": new FormControl('qwerty', Validators.required),
+      password: new FormControl('qwerty', Validators.required),
     });
   }
 
-  ngOnInit(): void {
-    console.log('INIT LOGIN');
-  }
-
-  authUser() {
+  authUser(): void {
     this.httpService.loginUser(this.myForm.value);
   }
+
 }

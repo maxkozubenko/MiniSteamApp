@@ -32,17 +32,17 @@ export class GamesComponent implements OnInit {
     this.getGames();
   }
 
-  getGamesByTags() {
+  getGamesByTags(): void {
     this.httpService.getGamesByTag$(this.myForm.value).subscribe(games => {
       this.games = Object.values(games);
     });
   }
 
-  addGameUser(gameId: string) {
+  addGameUser(gameId: string): void {
     this.httpService.addGameToUser$(gameId).subscribe(data => alert(`Game ${data} was added`));
   }
 
-  getGameByName() {
+  getGameByName(): void {
     this.httpService.findGame$(this.gameForm.value.name).subscribe(games => {
       if(Object.keys(games).length === 0 && games.constructor === Object) {
         this.games = [];
@@ -52,10 +52,10 @@ export class GamesComponent implements OnInit {
     });
   }
 
-  getGames() {
+  getGames(): void {
     this.httpService.getGames$().subscribe(games => {
       this.games = Object.values(games);
     });
   }
-  
+
 }

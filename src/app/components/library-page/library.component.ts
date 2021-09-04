@@ -17,11 +17,11 @@ export class LibraryComponent implements OnInit {
     this.getUsersGame();
   }
 
-  alertWindow() {
+  alertWindow(): void {
     alert('The game is not apply');
   }
 
-  getUsersGame() {
+  getUsersGame(): void {
     this.httpService.getUsersGames$().subscribe(games => {
       this.games = Object.values(games);
     });
