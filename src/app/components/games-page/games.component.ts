@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from 'src/app/services/http.service';
-import { gameInterface} from '../../models/model';
+import { GameInterface} from '../../models/model';
 
 @Component({
   selector: 'app-games',
@@ -10,7 +10,7 @@ import { gameInterface} from '../../models/model';
 })
 export class GamesComponent implements OnInit {
 
-  games: gameInterface[] = [];
+  games: GameInterface[] = [];
 
   myForm: FormGroup;
   gameForm: FormGroup;
@@ -33,27 +33,27 @@ export class GamesComponent implements OnInit {
   }
 
   getGamesByTags(): void {
-    this.httpService.getGamesByTag$(this.myForm.value).subscribe(games => {
+    this.httpService.getGamesByTag(this.myForm.value).subscribe(games => {
       this.games = Object.values(games);
     });
   }
 
   addGameUser(gameId: string): void {
-    this.httpService.addGameToUser$(gameId).subscribe(data => alert(`Game ${data} was added`));
+    this.httpService.addGameToUser(gameId).subscribe(data => alert(`Game ${data} was added`));
   }
 
   getGameByName(): void {
-    this.httpService.findGame$(this.gameForm.value.name).subscribe(games => {
+    this.httpService.findGame(this.gameForm.value.name).subscribe(games => {
       if(Object.keys(games).length === 0 && games.constructor === Object) {
         this.games = [];
       } else {
-        this.games = games as gameInterface[];
+        this.games = games as GameInterface[];
       }
     });
   }
 
   getGames(): void {
-    this.httpService.getGames$().subscribe(games => {
+    this.httpService.getGames().subscribe(games => {
       this.games = Object.values(games);
     });
   }

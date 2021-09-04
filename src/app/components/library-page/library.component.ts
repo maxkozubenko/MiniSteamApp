@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
-import { gameInterface } from '../../models/model';
+import { GameInterface } from '../../models/model';
 
 @Component({
   selector: 'app-library',
@@ -9,7 +9,7 @@ import { gameInterface } from '../../models/model';
 })
 export class LibraryComponent implements OnInit {
 
-  games: gameInterface[] = [];
+  games: GameInterface[] = [];
 
   constructor(private httpService: HttpService) { }
 
@@ -22,7 +22,7 @@ export class LibraryComponent implements OnInit {
   }
 
   getUsersGame(): void {
-    this.httpService.getUsersGames$().subscribe(games => {
+    this.httpService.getUsersGames().subscribe(games => {
       this.games = Object.values(games);
     });
   }

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Router } from '@angular/router';
-import { userLoginInterface, userResetInterface, tokenInterface, paramInterface } from '../models/model';
+import { UserLoginInterface, UserResetInterface, TokenInterface, ParamInterface, Friend, GameInterface } from '../models/model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class HttpService {
   ) {
    }
 
-  loginUser (userLogin: userLoginInterface){
+  loginUser (userLogin: UserLoginInterface){
     const res = this.http.post('api/auth/login', userLogin);
 
     res.subscribe(data => {
@@ -28,8 +29,7 @@ export class HttpService {
     });
   }
 
-  resetUserProfile(userReset: userResetInterface) {
-    console.log(userReset);
+  resetUserProfile(userReset: UserResetInterface) {
     this.http.patch('api/auth/update', userReset).subscribe(
       res => { 
         console.log('received ok response from patch request');
@@ -40,55 +40,45 @@ export class HttpService {
       });
   }
 
-  getGames$ () {
-    const res$ = this.http.get('api/games');
-    return res$;
+  getGames(): Observable<GameInterface> {
+    return this.http.get<GameInterface>('api/games');
   }
 
-  getGamesByTag$ (param: paramInterface) {
+  getGamesByTag(param: ParamInterface): Observable<GameInterface> {
     const requestParam = `?price=${param.price*9}&indie=${param.indie}&action=${param.action}&adventure=${param.adventure}`;
-    const res$ = this.http.get(`api/games/filter${requestParam}`);
-    return res$;
+    return this.http.get<GameInterface>(`api/games/filter${requestParam}`);
   }
 
-  addGameToUser$ (gameId: string) {
-    const res$ = this.http.post(`api/user/games/add`, {gameId});
-    return res$;
+  addGameToUser(gameId: string): Observable<string> {
+    return this.http.post<string>(`api/user/games/add`, {gameId});
   }
 
-  getUsersGames$ () {
-    const res$ = this.http.get('api/user/games');
-    return res$;
+  getUsersGames(): Observable<GameInterface> {
+    return this.http.get<GameInterface>('api/user/games');
   }
 
-  findGame$ (gameName: string) {
+  findGame(gameName: string): Observable<GameInterface> {
     const requestParam = `?gameName=${gameName}`;
-    const res$ = this.http.get(`api/game/get${requestParam}`);
-    return res$;
+    return this.http.get<GameInterface>(`api/game/get${requestParam}`);
   }
 
-  getFriends$ () {
-    const res$ = this.http.get('api/user/friends');
-    return res$;
+  getFriends(): Observable<Friend> {
+    return this.http.get<Friend>('api/user/friends');
   }
 
-  getAllUsers$ () {
-    const res$ = this.http.get('api/users/get');
-    return res$;
+  getAllUsers(): Observable<Friend> {
+    return this.http.get<Friend>('api/users/get');
   }
 
-  confirmFriend$ (emailFriend: string) {
-    const res$ = this.http.patch('api/user/confirm/friend', {emailFriend});
-    return res$;
+  confirmFriend(emailFriend: string){
+    return this.http.patch('api/user/confirm/friend', {emailFriend});
   }
 
-  addFriend$ (emailFriend: string) {
-    const res$ = this.http.post('api/user/add/friend', {emailFriend});
-    return res$;
+  addFriend(emailFriend: string) {
+    return this.http.post('api/user/add/friend', {emailFriend});
   }
 
-  rejectFriend$ (emailFriend: string) {
-    const res$ = this.http.patch('api/user/reject/friend', {emailFriend});
-    return res$;
+  rejectFriend(emailFriend: string) {
+    return this.http.patch('api/user/reject/friend', {emailFriend});
   }
 }

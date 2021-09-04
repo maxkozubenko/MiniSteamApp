@@ -1,26 +1,26 @@
-export interface userLoginInterface {
+export interface UserLoginInterface {
     email: string,
     password: string
 }
 
-export interface userResetInterface {
+export interface UserResetInterface {
     nickname: string,
     email: string,
 }
 
-export interface tokenInterface {
+export interface TokenInterface {
     message: string,
     jwt_token: string
 }
 
-export interface paramInterface {
+export interface ParamInterface {
     price: number,
     indie: boolean,
     action: string,
     adventure: boolean
 }
 
-export interface gameInterface {
+export interface GameInterface {
     name: string,
     price: string,
     description: string,
