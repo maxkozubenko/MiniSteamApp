@@ -19,7 +19,7 @@ export class FriendsComponent implements OnInit {
     this.myForm = new FormGroup({
       emailFriend: new FormControl('', Validators.required),
     });
-   }
+  }
 
   ngOnInit(): void {
     this.getFriends();
@@ -34,21 +34,21 @@ export class FriendsComponent implements OnInit {
   confirmFriend(emailFriend: string): void {
     this.httpService.confirmFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
-      // this.ngOnInit();
+      this.getFriends();
     });
   }
 
   addFriend(emailFriend: string): void {
     this.httpService.addFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
-      // this.ngOnInit();
+      this.getFriends();
     });
   }
 
   rejectFriend(emailFriend: string): void {
     this.httpService.rejectFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
-      // this.ngOnInit();
+      this.getFriends();
     });
   }
 
