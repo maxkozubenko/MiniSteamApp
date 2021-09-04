@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { concat, Observable } from 'rxjs';
 import { HttpService } from 'src/app/services/http.service';
 import { Friend } from '../../models/model'
 
@@ -26,30 +27,45 @@ export class FriendsComponent implements OnInit {
   }
 
   getAllUsers(): void {
-    this.httpService.getAllUsers().subscribe(user => {
-      this.users = Object.values(user);
-    });
+    // this.httpService.getAllUsers().subscribe(user => {
+    //   this.users = Object.values(user);
+    // });
+    concat(
+      this.httpService.getAllUsers(),
+      this.httpService.getFriends(),
+    )
   }
 
   confirmFriend(emailFriend: string): void {
-    this.httpService.confirmFriend(emailFriend).subscribe(friend => {
-      this.friends = Object.values(friend);
-      this.getFriends();
-    });
+    // this.httpService.confirmFriend(emailFriend).subscribe(friend => {
+    //   this.friends = Object.values(friend);
+    // });
+
+    concat(
+      this.httpService.confirmFriend(emailFriend),
+      this.httpService.getFriends(),
+    )
   }
 
   addFriend(emailFriend: string): void {
-    this.httpService.addFriend(emailFriend).subscribe(friend => {
-      this.friends = Object.values(friend);
-      this.getFriends();
-    });
+    // this.httpService.addFriend(emailFriend).subscribe(friend => {
+    //   this.friends = Object.values(friend)
+    // });
+    concat(
+      this.httpService.addFriend(emailFriend),
+      this.httpService.getFriends(),
+    )
   }
 
   rejectFriend(emailFriend: string): void {
-    this.httpService.rejectFriend(emailFriend).subscribe(friend => {
-      this.friends = Object.values(friend);
-      this.getFriends();
-    });
+    // this.httpService.rejectFriend(emailFriend).subscribe(friend => {
+    //   this.friends = Object.values(friend);
+    //   this.getFriends();
+    // });
+    concat(
+      this.httpService.rejectFriend(emailFriend),
+      this.httpService.getFriends(),
+    )
   }
 
   getFriends(): void {
