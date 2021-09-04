@@ -29,36 +29,36 @@ export class FriendsComponent implements OnInit {
   getAllUsers(): void {
     this.httpService.getAllUsers().subscribe(user => {
       this.users = Object.values(user);
-      this.getFriends();
     });
+    this.getFriends();
   }
 
   confirmFriend(emailFriend: string): void {
     this.httpService.confirmFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
-      this.getFriends();
     });
+    this.getFriends();
   }
 
   addFriend(emailFriend: string): void {
     this.httpService.addFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
-      this.getFriends();
     });
+    this.getFriends();
   }
 
   rejectFriend(emailFriend: string): void {
     this.httpService.rejectFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
-      this.getFriends();
     });
+    this.getFriends();
   }
 
   getFriends(): void {
     this.httpService.getFriends().subscribe(friend => {
       this.friends = Object.values(friend);
-      this.getFriends();
     });
+    this.getFriends();
   }
   
 }
