@@ -50,7 +50,7 @@ export class GamesComponent implements OnInit {
         this.games = [];
       } else {
         console.log(games);
-        this.games = [];
+        this.games = [games] as gameInterface[];
       }
     });
   }
