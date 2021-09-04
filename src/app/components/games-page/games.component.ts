@@ -4,10 +4,6 @@ import { Observable } from 'rxjs';
 import { HttpService } from 'src/app/services/http.service';
 import { gameInterface} from '../../models/model';
 
-interface Game {
-
-}
-
 @Component({
   selector: 'app-games',
   templateUrl: './games.component.html',
@@ -53,6 +49,7 @@ export class GamesComponent implements OnInit {
       if(Object.keys(games).length === 0 && games.constructor === Object) {
         this.games = [];
       } else {
+        console.log(games);
         this.games = [];
       }
     });
