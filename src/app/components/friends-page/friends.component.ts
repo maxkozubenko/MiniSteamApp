@@ -34,21 +34,21 @@ export class FriendsComponent implements OnInit {
   confirmFriend(emailFriend: string): void {
     this.httpService.confirmFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
-      this.ngOnInit();
+      // this.ngOnInit();
     });
   }
 
   addFriend(emailFriend: string): void {
     this.httpService.addFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
-      this.ngOnInit();
+      // this.ngOnInit();
     });
   }
 
   rejectFriend(emailFriend: string): void {
     this.httpService.rejectFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
-      this.ngOnInit();
+      // this.ngOnInit();
     });
   }
 
@@ -57,4 +57,5 @@ export class FriendsComponent implements OnInit {
       this.friends = Object.values(friend);
     });
   }
+  
 }
