@@ -70,15 +70,15 @@ export class HttpService {
     return this.http.get<Friend>('api/users/get');
   }
 
-  confirmFriend(emailFriend: string){
-    return this.http.patch('api/user/confirm/friend', {emailFriend});
+  confirmFriend(emailFriend: string): Observable<Friend>  {
+    return this.http.patch<Friend>('api/user/confirm/friend', {emailFriend});
   }
 
-  addFriend(emailFriend: string) {
-    return this.http.post('api/user/add/friend', {emailFriend});
+  addFriend(emailFriend: string): Observable<Friend>  {
+    return this.http.post<Friend>('api/user/add/friend', {emailFriend});
   }
 
-  rejectFriend(emailFriend: string) {
-    return this.http.patch('api/user/reject/friend', {emailFriend});
+  rejectFriend(emailFriend: string): Observable<Friend>  {
+    return this.http.patch<Friend>('api/user/reject/friend', {emailFriend});
   }
 }
