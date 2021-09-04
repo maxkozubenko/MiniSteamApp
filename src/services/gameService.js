@@ -24,6 +24,12 @@ const getGamesByTags = async (price, indie, action, adventure) => {
 
 const getGame = async (gameName) => {
     const game = await Game.find({name: gameName});
+    const game2 = await Game.aggregate([
+        { $match: { name: gameName } },
+        { $group: { _id: "$_id", name: '$name', desctiption: '$desctiption', img: '$img'} }
+    ]);
+
+    console.log(game2);
     return game;
 };
 
