@@ -27,45 +27,28 @@ export class FriendsComponent implements OnInit {
   }
 
   getAllUsers(): void {
-    // this.httpService.getAllUsers().subscribe(user => {
-    //   this.users = Object.values(user);
-    // });
-    concat(
-      this.httpService.getAllUsers(),
-      this.httpService.getFriends(),
-    )
+    this.httpService.getAllUsers().subscribe(user => {
+      this.users = Object.values(user);
+    });
   }
 
   confirmFriend(emailFriend: string): void {
-    // this.httpService.confirmFriend(emailFriend).subscribe(friend => {
-    //   this.friends = Object.values(friend);
-    // });
-
-    concat(
-      this.httpService.confirmFriend(emailFriend),
-      this.httpService.getFriends(),
-    )
+    this.httpService.confirmFriend(emailFriend).subscribe(friend => {
+      this.friends = Object.values(friend);
+    });
   }
 
   addFriend(emailFriend: string): void {
-    // this.httpService.addFriend(emailFriend).subscribe(friend => {
-    //   this.friends = Object.values(friend)
-    // });
-    concat(
-      this.httpService.addFriend(emailFriend),
-      this.httpService.getFriends(),
-    )
+    this.httpService.addFriend(emailFriend).subscribe(friend => {
+      this.friends = Object.values(friend)
+    });
   }
 
   rejectFriend(emailFriend: string): void {
-    // this.httpService.rejectFriend(emailFriend).subscribe(friend => {
-    //   this.friends = Object.values(friend);
-    //   this.getFriends();
-    // });
-    concat(
-      this.httpService.rejectFriend(emailFriend),
-      this.httpService.getFriends(),
-    )
+    this.httpService.rejectFriend(emailFriend).subscribe(friend => {
+      this.friends = Object.values(friend);
+      this.getFriends();
+    });
   }
 
   getFriends(): void {
