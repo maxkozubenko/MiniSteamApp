@@ -61,9 +61,9 @@ export class FriendsComponent implements OnInit {
     // this.getFriends();
 
     concat(
+      this.httpService.getAllUsers(),
       this.httpService.getFriends(),
-      this.httpService.getFriends(),
-    ).subscribe(data => console.log(data));
+    ).subscribe(data => console.log(data, 'DATA'));
   }
   
 }
