@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { concat } from 'rxjs';
 import { HttpService } from 'src/app/services/http.service';
-import * as stream from 'stream';
 import { Friend } from '../../models/model'
 
 @Component({
