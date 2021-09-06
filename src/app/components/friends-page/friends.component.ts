@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { concat, Observable } from 'rxjs';
+import { concat } from 'rxjs';
 import { HttpService } from 'src/app/services/http.service';
+import * as stream from 'stream';
 import { Friend } from '../../models/model'
 
 @Component({
@@ -30,35 +31,40 @@ export class FriendsComponent implements OnInit {
     this.httpService.getAllUsers().subscribe(user => {
       this.users = Object.values(user);
     });
-    this.getFriends();
+    // this.getFriends();
   }
 
   confirmFriend(emailFriend: string): void {
     this.httpService.confirmFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
     });
-    this.getFriends();
+    // this.getFriends();
   }
 
   addFriend(emailFriend: string): void {
     this.httpService.addFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
     });
-    this.getFriends();
+    // this.getFriends();
   }
 
   rejectFriend(emailFriend: string): void {
     this.httpService.rejectFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
     });
-    this.getFriends();
+    // this.getFriends();
   }
 
   getFriends(): void {
     this.httpService.getFriends().subscribe(friend => {
       this.friends = Object.values(friend);
     });
-    this.getFriends();
+    // this.getFriends();
+
+    concat(
+      this.httpService.getFriends(),
+      this.httpService.getFriends(),
+    ).subscribe(data => console.log(data));
   }
   
 }
