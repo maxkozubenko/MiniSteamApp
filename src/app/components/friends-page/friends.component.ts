@@ -55,19 +55,17 @@ export class FriendsComponent implements OnInit {
   }
 
   getFriends(): void {
-    this.httpService.getFriends().subscribe(friend => {
-      this.friends = Object.values(friend);
-    });
-
-    // concat(
-    //   this.httpService.getAllUsers(),
-    //   this.httpService.getFriends(),
-    // ).subscribe(data => console.log(data, 'DATA'));
+    // this.httpService.getFriends().subscribe(friend => {
+    //   this.friends = Object.values(friend);
+    // });
 
     forkJoin({
       users: this.httpService.getAllUsers(),
       friends: this.httpService.getFriends(),
-    }).subscribe(data => console.log(data, 'DATA'));
+    }).subscribe(data => {
+      this.friends = [data.friends];
+      this.users = [data.users];
+    });
   }
   
 }
