@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { concat } from 'rxjs';
+import { concat, forkJoin } from 'rxjs';
 import { HttpService } from 'src/app/services/http.service';
 import { Friend } from '../../models/model'
 
@@ -58,12 +58,16 @@ export class FriendsComponent implements OnInit {
     this.httpService.getFriends().subscribe(friend => {
       this.friends = Object.values(friend);
     });
-    // this.getFriends();
 
-    concat(
-      this.httpService.getAllUsers(),
-      this.httpService.getFriends(),
-    ).subscribe(data => console.log(data, 'DATA'));
+    // concat(
+    //   this.httpService.getAllUsers(),
+    //   this.httpService.getFriends(),
+    // ).subscribe(data => console.log(data, 'DATA'));
+
+    forkJoin({
+      users: this.httpService.getAllUsers(),
+      friends: this.httpService.getFriends(),
+    }).subscribe(data => console.log(data, 'DATA'));
   }
   
 }
