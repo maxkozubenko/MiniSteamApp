@@ -6,11 +6,6 @@ import {Observable} from "rxjs";
 export class GamesGuard implements CanActivate{
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : Observable<boolean> | boolean{
-
-        if (localStorage.getItem('id_token') !== null) {
-            return true;
-        }
-
-        return false;
+        return Boolean(localStorage.getItem('id_token'));
     }
 }
