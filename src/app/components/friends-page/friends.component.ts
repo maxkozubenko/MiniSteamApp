@@ -24,6 +24,7 @@ export class FriendsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getFriends();
+    this.getAllUsers();
   }
 
   getAllUsers(): void {
