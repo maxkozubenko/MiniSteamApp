@@ -27,31 +27,65 @@ export class FriendsComponent implements OnInit {
   }
 
   getAllUsers(): void {
-    this.httpService.getAllUsers().subscribe(user => {
-      this.users = Object.values(user);
-    });
+    // this.httpService.getAllUsers().subscribe(user => {
+    //   this.users = Object.values(user);
+    // });
     // this.getFriends();
+    forkJoin({
+      users: this.httpService.getAllUsers()
+    }).subscribe(data => {
+      this.users = [data.users];
+      console.log('Friends', this.friends);
+      console.log('Users', this.users);
+    })
   }
 
   confirmFriend(emailFriend: string): void {
-    this.httpService.confirmFriend(emailFriend).subscribe(friend => {
-      this.friends = Object.values(friend);
-    });
+    // this.httpService.confirmFriend(emailFriend).subscribe(friend => {
+    //   this.friends = Object.values(friend);
+    // });
     // this.getFriends();
+    forkJoin({
+      friends: this.httpService.confirmFriend(emailFriend),
+      users: this.httpService.getAllUsers(),
+    }).subscribe(data => {
+      this.friends = [data.friends];
+      this.users = [data.users];
+      console.log('Friends', this.friends);
+      console.log('Users', this.users);
+    })
   }
 
   addFriend(emailFriend: string): void {
-    this.httpService.addFriend(emailFriend).subscribe(friend => {
-      this.friends = Object.values(friend);
-    });
+    // this.httpService.addFriend(emailFriend).subscribe(friend => {
+    //   this.friends = Object.values(friend);
+    // });
     // this.getFriends();
+    forkJoin({
+      friends: this.httpService.addFriend(emailFriend),
+      users: this.httpService.getAllUsers(),
+    }).subscribe(data => {
+      this.friends = [data.friends];
+      this.users = [data.users];
+      console.log('Friends', this.friends);
+      console.log('Users', this.users);
+    })
   }
 
   rejectFriend(emailFriend: string): void {
-    this.httpService.rejectFriend(emailFriend).subscribe(friend => {
-      this.friends = Object.values(friend);
-    });
+    // this.httpService.rejectFriend(emailFriend).subscribe(friend => {
+    //   this.friends = Object.values(friend);
+    // });
     // this.getFriends();
+    forkJoin({
+      friends: this.httpService.rejectFriend(emailFriend),
+      users: this.httpService.getAllUsers(),
+    }).subscribe(data => {
+      this.friends = [data.friends];
+      this.users = [data.users];
+      console.log('Friends', this.friends);
+      console.log('Users', this.users);
+    })
   }
 
   getFriends(): void {
@@ -60,8 +94,8 @@ export class FriendsComponent implements OnInit {
     // });
 
     forkJoin({
-      users: this.httpService.getAllUsers(),
       friends: this.httpService.getFriends(),
+      users: this.httpService.getAllUsers(),
     }).subscribe(data => {
       this.friends = [data.friends];
       this.users = [data.users];
