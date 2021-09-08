@@ -65,6 +65,8 @@ export class FriendsComponent implements OnInit {
     }).subscribe(data => {
       this.friends = [data.friends];
       this.users = [data.users];
+      console.log('Friends', this.friends);
+      console.log('Users', this.users);
     });
   }
   
