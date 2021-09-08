@@ -39,6 +39,7 @@ export class FriendsComponent implements OnInit {
       this.friends = Object.values(friend);
     });
     console.log(this.friends);
+    this.getAllUsers();
   }
 
   addFriend(emailFriend: string): void {
@@ -46,6 +47,7 @@ export class FriendsComponent implements OnInit {
       this.friends = Object.values(friend);
     });
     console.log(this.friends);
+    this.getAllUsers();
   }
 
   rejectFriend(emailFriend: string): void {
@@ -53,6 +55,7 @@ export class FriendsComponent implements OnInit {
       this.friends = Object.values(friend);
     });
     console.log(this.friends);
+    this.getAllUsers();
   }
 
   getFriends(): void {
@@ -60,6 +63,7 @@ export class FriendsComponent implements OnInit {
       this.friends = Object.values(friend);
     });
     console.log(this.friends);
+    this.getAllUsers();
   }
   
 }
