@@ -48,6 +48,11 @@ export class FriendsComponent implements OnInit {
     });
     console.log('Friend', this.friends);
     this.getAllUsers();
+
+    forkJoin({
+      friends: this.httpService.addFriend(emailFriend),
+      users: this.httpService.getAllUsers(),
+    }).subscribe(data => console.log(data));
   }
 
   rejectFriend(emailFriend: string): void {
@@ -64,6 +69,7 @@ export class FriendsComponent implements OnInit {
     });
     console.log('Friend', this.friends);
     this.getAllUsers();
+
   }
   
 }
