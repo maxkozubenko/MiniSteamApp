@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { concat, forkJoin } from 'rxjs';
 import { HttpService } from 'src/app/services/http.service';
@@ -7,7 +7,7 @@ import { Friend } from '../../models/model';
 @Component({
   selector: 'app-friends',
   templateUrl: './friends.component.html',
-  styleUrls: ['./friends.component.scss']
+  styleUrls: ['./friends.component.scss'],
 })
 export class FriendsComponent implements OnInit {
 
@@ -15,6 +15,7 @@ export class FriendsComponent implements OnInit {
   users: Friend[] = [];
 
   myForm: FormGroup;
+  router: any;
 
   constructor(private httpService: HttpService) {
     this.myForm = new FormGroup({
@@ -27,10 +28,6 @@ export class FriendsComponent implements OnInit {
     this.getAllUsers();
   }
 
-  refresh(): void {
-    window.location.reload();
-  }
-
   getAllUsers(): void {
     this.httpService.getAllUsers().subscribe(user => {
       this.users = Object.values(user);
@@ -41,19 +38,19 @@ export class FriendsComponent implements OnInit {
   confirmFriend(emailFriend: string): void {
     this.httpService.confirmFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
+      this.getAllUsers();
     });
     console.log('Confirm Friend', this.friends);
-    this.getAllUsers();
-    this.refresh();
+
   }
 
   addFriend(emailFriend: string): void {
     this.httpService.addFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
+      this.getAllUsers();
     });
     console.log('Add Friend', this.friends);
-    this.getAllUsers();
-    this.refresh();
+
     // forkJoin({
     //   friends: this.httpService.addFriend(emailFriend),
     //   users: this.httpService.getAllUsers(),
@@ -63,19 +60,18 @@ export class FriendsComponent implements OnInit {
   rejectFriend(emailFriend: string): void {
     this.httpService.rejectFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
+      this.getAllUsers();
     });
     console.log('Reject Friend', this.friends);
-    this.getAllUsers();
-    this.refresh();
+
   }
 
   getFriends(): void {
     this.httpService.getFriends().subscribe(friend => {
       this.friends = Object.values(friend);
+      this.getAllUsers();
     });
     console.log('Get Friend', this.friends);
-    this.getAllUsers();
-    this.refresh();
   }
   
 }
