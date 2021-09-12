@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { concat, forkJoin } from 'rxjs';
 import { HttpService } from 'src/app/services/http.service';
-import { Friend } from '../../models/model'
+import { Friend } from '../../models/model';
 
 @Component({
   selector: 'app-friends',
@@ -31,14 +31,14 @@ export class FriendsComponent implements OnInit {
     this.httpService.getAllUsers().subscribe(user => {
       this.users = Object.values(user);
     });
-    console.log('Get All Users', this.users);
+    // console.log('Get All Users', this.users);
   }
 
   confirmFriend(emailFriend: string): void {
     this.httpService.confirmFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
     });
-    console.log('Confirm Friend', this.friends);
+    // console.log('Confirm Friend', this.friends);
     // this.getAllUsers();
   }
 
@@ -46,7 +46,7 @@ export class FriendsComponent implements OnInit {
     this.httpService.addFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
     });
-    console.log('Add Friend', this.friends);
+    // console.log('Add Friend', this.friends);
     // this.getAllUsers();
     // forkJoin({
     //   friends: this.httpService.addFriend(emailFriend),
@@ -58,7 +58,7 @@ export class FriendsComponent implements OnInit {
     this.httpService.rejectFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
     });
-    console.log('Reject Friend', this.friends);
+    // console.log('Reject Friend', this.friends);
     // this.getAllUsers();
   }
 
@@ -66,7 +66,7 @@ export class FriendsComponent implements OnInit {
     this.httpService.getFriends().subscribe(friend => {
       this.friends = Object.values(friend);
     });
-    console.log('Get Friend', this.friends);
+    // console.log('Get Friend', this.friends);
     // this.getAllUsers();
   }
   
