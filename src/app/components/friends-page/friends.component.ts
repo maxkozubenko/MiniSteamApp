@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterContentChecked } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { concat, forkJoin } from 'rxjs';
 import { HttpService } from 'src/app/services/http.service';
@@ -27,17 +27,11 @@ export class FriendsComponent implements OnInit {
     this.getAllUsers();
   }
 
-  ngAfterContentChecked(): void {
-    this.getFriends();
-    this.getAllUsers();
-  }
-
   getAllUsers(): void {
     this.httpService.getAllUsers().subscribe(user => {
       this.users = Object.values(user);
     });
     console.log('Get All Users', this.users);
-    this.ngAfterContentChecked();
   }
 
   confirmFriend(emailFriend: string): void {
@@ -46,7 +40,6 @@ export class FriendsComponent implements OnInit {
     });
     console.log('Confirm Friend', this.friends);
     // this.getAllUsers();
-    this.ngAfterContentChecked();
   }
 
   addFriend(emailFriend: string): void {
@@ -55,7 +48,6 @@ export class FriendsComponent implements OnInit {
     });
     console.log('Add Friend', this.friends);
     // this.getAllUsers();
-    this.ngAfterContentChecked();
     // forkJoin({
     //   friends: this.httpService.addFriend(emailFriend),
     //   users: this.httpService.getAllUsers(),
@@ -68,7 +60,6 @@ export class FriendsComponent implements OnInit {
     });
     console.log('Reject Friend', this.friends);
     // this.getAllUsers();
-    this.ngAfterContentChecked();
   }
 
   getFriends(): void {
@@ -77,7 +68,6 @@ export class FriendsComponent implements OnInit {
     });
     console.log('Get Friend', this.friends);
     // this.getAllUsers();
-    this.ngAfterContentChecked();
   }
   
 }
