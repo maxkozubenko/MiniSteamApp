@@ -39,7 +39,7 @@ export class FriendsComponent implements OnInit {
       this.friends = Object.values(friend);
     });
     console.log('Confirm Friend', this.friends);
-    this.getAllUsers();
+    // this.getAllUsers();
   }
 
   addFriend(emailFriend: string): void {
@@ -47,12 +47,12 @@ export class FriendsComponent implements OnInit {
       this.friends = Object.values(friend);
     });
     console.log('Add Friend', this.friends);
-    this.getAllUsers();
+    // this.getAllUsers();
 
-    forkJoin({
-      friends: this.httpService.addFriend(emailFriend),
-      users: this.httpService.getAllUsers(),
-    }).subscribe(data => console.log(data));
+    // forkJoin({
+    //   friends: this.httpService.addFriend(emailFriend),
+    //   users: this.httpService.getAllUsers(),
+    // }).subscribe(data => console.log(data));
   }
 
   rejectFriend(emailFriend: string): void {
@@ -60,7 +60,7 @@ export class FriendsComponent implements OnInit {
       this.friends = Object.values(friend);
     });
     console.log('Reject Friend', this.friends);
-    this.getAllUsers();
+    // this.getAllUsers();
   }
 
   getFriends(): void {
@@ -68,7 +68,7 @@ export class FriendsComponent implements OnInit {
       this.friends = Object.values(friend);
     });
     console.log('Get Friend', this.friends);
-    this.getAllUsers();
+    // this.getAllUsers();
   }
   
 }
