@@ -13,6 +13,8 @@ export class FriendsComponent implements OnInit {
 
   friends: Friend[] = [];
   users: Friend[] = [];
+  statusConfirm: string = 'confirmed';
+  statusPending: string = 'pending';
 
   myForm: FormGroup;
   router: any;

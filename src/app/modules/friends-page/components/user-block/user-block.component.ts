@@ -9,6 +9,7 @@ import { Friend } from 'src/app/models/model';
 export class UserBlockComponent {
   
   @Input() friends: Friend[] = [];
+  @Input() statusToShow: string = '';
 
   constructor() { }
 
