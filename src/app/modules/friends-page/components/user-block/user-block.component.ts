@@ -4,7 +4,7 @@ import { Friend } from 'src/app/models/model';
   selector: 'app-user-block',
   templateUrl: './user-block.component.html',
   styleUrls: ['./user-block.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserBlockComponent {
   
