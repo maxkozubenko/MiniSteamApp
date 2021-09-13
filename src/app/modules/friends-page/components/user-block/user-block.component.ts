@@ -12,7 +12,7 @@ export class UserBlockComponent {
 
   constructor() { }
 
-  rejectFriend(email) {
+  rejectFriend(email: string) {
     console.log(email);
   }
 }
