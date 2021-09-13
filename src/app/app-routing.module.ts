@@ -9,27 +9,27 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./components/login-page/login.module').then(m => m.LoginModule),
+    loadChildren: () => import('./modules/login-page/login.module').then(m => m.LoginModule),
     pathMatch: 'full'
   },
   {
     path: 'profile',
-    loadChildren: () => import('./components/profile-page/profile.module').then(m => m.ProfileModule),
+    loadChildren: () => import('./modules/profile-page/profile.module').then(m => m.ProfileModule),
     pathMatch: 'full'
   },
   {
     path: 'library',
-    loadChildren: () => import('./components/library-page/library.module').then(m => m.LibraryModule),
+    loadChildren: () => import('./modules/library-page/library.module').then(m => m.LibraryModule),
     pathMatch: 'full'
   },
   {
     path: 'friends',
-    loadChildren: () => import('./components/friends-page/friends.module').then(m => m.FriendsModule),
+    loadChildren: () => import('./modules/friends-page/friends.module').then(m => m.FriendsModule),
     pathMatch: 'full'
   },
   {
     path: 'games',
-    loadChildren: () => import('./components/games-page/games.module').then(m => m.GamesModule),
+    loadChildren: () => import('./modules/games-page/games.module').then(m => m.GamesModule),
     pathMatch: 'full'
   }
 ];
