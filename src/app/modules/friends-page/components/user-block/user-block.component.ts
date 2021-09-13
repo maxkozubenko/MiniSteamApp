@@ -16,4 +16,8 @@ export class UserBlockComponent {
   rejectFriend(email: string) {
     console.log(email);
   }
+
+  confirmFriend(email: string) {
+    console.log(email);
+  }
 }
