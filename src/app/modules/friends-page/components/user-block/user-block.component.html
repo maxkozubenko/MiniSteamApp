@@ -10,3 +10,9 @@
         <button class="friends-user__btn_yellow friends-user__btn" (click)="confirmFriend(friend.email)" *ngIf="friend.status == 'pending'">Confirm Friend</button>
     </div>
 </div>
+<div class="friends-list">
+    <div class="friends-user" *ngFor="let user of users" >
+        <span class="friends-user__nickname">{{user.nickname}} - {{user.email}}</span>
+        <button class="friends-user__btn_green friends-user__btn" (click)="addFriend(user.email)">Add Friend</button>
+    </div>
+</div>

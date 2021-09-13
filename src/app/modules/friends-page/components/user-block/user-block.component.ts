@@ -9,16 +9,17 @@ import { Friend } from 'src/app/models/model';
 export class UserBlockComponent {
   
   @Input() friends: Friend[] = [];
-  // @Input() statusToShowConfirm: string = '';
-  // @Input() statusToShowPending: string = '';
-
-  constructor() { }
+  @Input() users: Friend[] = [];
 
   rejectFriend(email: string) {
     console.log(email);
   }
 
   confirmFriend(email: string) {
+    console.log(email);
+  }
+
+  addFriend(email: string) {
     console.log(email);
   }
 }
