@@ -1,6 +1,7 @@
 <div class="friends-list">
     <div class="friends-user" *ngFor="let friend of friends" >
         <span class="friends-user__nickname" *ngIf="friend.status == statusToShow">{{friend.nickname}} - {{friend.email}}</span>
-        <button class="friends-user__btn_red friends-user__btn" *ngIf="friend.status == statusToShow" (click)="rejectFriend(friend.email)">Remove Friend</button>
+        <button class="friends-user__btn_red friends-user__btn" *ngIf="friend.status == 'pending'" (click)="rejectFriend(friend.email)">Remove Friend</button>
+        <button class="friends-user__btn_yellow friends-user__btn" (click)="confirmFriend(friend.email)" *ngIf="friend.status == 'confirmed'">Confirm Friend</button>
     </div>
 </div>
