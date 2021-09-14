@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Friend } from 'src/app/models/model';
 @Component({
   selector: 'app-user-block',
@@ -23,7 +23,7 @@ export class UserBlockComponent {
   //   console.log(email);
   // }
 
-  @Output() addFriend = new EventEmitter<string>();
+  @Output('update') addFriend = new EventEmitter<string>();
   @Output() confirmFriend = new EventEmitter<string>();
   @Output() rejectFriend = new EventEmitter<string>();
   add(email: string) {
