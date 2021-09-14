@@ -38,7 +38,8 @@ export class FriendsComponent implements OnInit {
   confirmFriend(emailFriend: string): void {
     this.httpService.confirmFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
-      // this.getAllUsers();
+      this.getFriends();
+      this.getAllUsers();
     });
     console.log('Confirm Friend', this.friends);
   }
@@ -46,7 +47,8 @@ export class FriendsComponent implements OnInit {
   addFriend(emailFriend: string): void {
     this.httpService.addFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
-      // this.getAllUsers();
+      this.getFriends();
+      this.getAllUsers();
     });
     console.log('Add Friend', this.friends);
   }
@@ -54,7 +56,8 @@ export class FriendsComponent implements OnInit {
   rejectFriend(emailFriend: string): void {
     this.httpService.rejectFriend(emailFriend).subscribe(friend => {
       this.friends = Object.values(friend);
-      // this.getAllUsers();
+      this.getFriends();
+      this.getAllUsers();
     });
     console.log('Reject Friend', this.friends);
   }
@@ -62,7 +65,8 @@ export class FriendsComponent implements OnInit {
   getFriends(): void {
     this.httpService.getFriends().subscribe(friend => {
       this.friends = Object.values(friend);
-      // this.getAllUsers();
+      this.getFriends();
+      this.getAllUsers();
     });
     console.log('Get Friend', this.friends);
   }
