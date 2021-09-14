@@ -1,18 +1,18 @@
 <div class="friends-list">
     <div class="friends-user" *ngFor="let friend of friends" >
         <span class="friends-user__nickname" *ngIf="friend.status == 'confirmed'">{{friend.nickname}} - {{friend.email}}</span>
-        <button class="friends-user__btn_red friends-user__btn" *ngIf="friend.status == 'confirmed'" (click)="reject(friend.email)">Remove Friend</button>
+        <button class="friends-user__btn_red friends-user__btn" *ngIf="friend.status == 'confirmed'">Remove Friend</button>
     </div>
 </div>
 <div class="friends-list">
     <div class="friends-user" *ngFor="let friend of friends" >
         <span class="friends-user__nickname" *ngIf="friend.status == 'pending'">{{friend.nickname}} - {{friend.email}}</span>
-        <button class="friends-user__btn_yellow friends-user__btn" (click)="confirm(friend.email)" *ngIf="friend.status == 'pending'">Confirm Friend</button>
+        <button class="friends-user__btn_yellow friends-user__btn" *ngIf="friend.status == 'pending'">Confirm Friend</button>
     </div>
 </div>
 <div class="friends-list">
     <div class="friends-user" *ngFor="let user of users" >
         <span class="friends-user__nickname">{{user.nickname}} - {{user.email}}</span>
-        <button class="friends-user__btn_green friends-user__btn" (click)="add(user.email)">Add Friend</button>
+        <button class="friends-user__btn_green friends-user__btn">Add Friend</button>
     </div>
 </div>
