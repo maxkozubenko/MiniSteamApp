@@ -65,8 +65,6 @@ export class FriendsComponent implements OnInit {
   getFriends(): void {
     this.httpService.getFriends().subscribe(friend => {
       this.friends = Object.values(friend);
-      this.getFriends();
-      this.getAllUsers();
     });
     console.log('Get Friend', this.friends);
   }
