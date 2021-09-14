@@ -23,7 +23,7 @@ export class UserBlockComponent {
   //   console.log(email);
   // }
 
-  @Output('update') addFriend = new EventEmitter<string>();
+  @Output() addFriend = new EventEmitter<string>();
   @Output() confirmFriend = new EventEmitter<string>();
   @Output() rejectFriend = new EventEmitter<string>();
   add(email: string) {
