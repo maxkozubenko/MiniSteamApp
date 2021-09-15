@@ -5,7 +5,7 @@
         <img class="games-game__img" src={{game.img}} alt="Game picture">
         <div class="games-game__info">
             <p class="games-game__description">{{game.description}}</p>
-            <button type="button" class="games-game__btn" (click)="addGameUser(game._id)">Add to Library</button>
+            <button type="button" class="games-game__btn" (click)="addGameUser.emit(game._id)">Add to Library</button>
         </div>
     </div>
 </div>

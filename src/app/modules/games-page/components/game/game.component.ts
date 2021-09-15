@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
 import { GameInterface } from 'src/app/models/model';
 
 
@@ -10,8 +10,5 @@ import { GameInterface } from 'src/app/models/model';
 })
 export class GameComponent {
   @Input() games:GameInterface[] = [];
-
-  addGameUser(gameId: string) {
-    console.log(gameId);
-  }
+  @Output() addGameUser = new EventEmitter()
 }
