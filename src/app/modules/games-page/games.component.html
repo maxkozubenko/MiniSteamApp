@@ -9,7 +9,7 @@
         </form>
         <h2 class="games__subtitle">Featured Games</h2>
         <div class="games-library">
-            <div class="games-galery">
+            <!-- <div class="games-galery">
                 <div class="games-game" *ngFor="let game of games">
                     <h3 class="games-game__name">{{game.name}}</h3>
                     <span class="games-game__price">{{game.price}} UAH</span>
@@ -19,8 +19,8 @@
                         <button type="button" class="games-game__btn" (click)="addGameUser(game._id)">Add to Library</button>
                     </div>
                 </div>
-                <app-game [games]="games"></app-game>
-            </div>
+            </div> -->
+            <app-game [games]="games"></app-game>
             <form class="games-filter" [formGroup]="myForm" (ngSubmit)="getGamesByTags()">
                 <h2 class="games-filter__titlePrice">Filter by price</h2>
                 <input class="here" type="range" id="price" name="genre" formControlName="price">
