@@ -19,6 +19,7 @@
                         <button type="button" class="games-game__btn" (click)="addGameUser(game._id)">Add to Library</button>
                     </div>
                 </div>
+                <app-game [games]="games"></app-game>
             </div>
             <form class="games-filter" [formGroup]="myForm" (ngSubmit)="getGamesByTags()">
                 <h2 class="games-filter__titlePrice">Filter by price</h2>
