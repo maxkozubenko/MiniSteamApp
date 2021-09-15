@@ -24,7 +24,14 @@ export class ProfileComponent {
   }
 
   resetInfo(): void {
-    this.httpService.resetUserProfile(this.myForm.value);
+    this.httpService.resetUserProfile(this.myForm.value).subscribe(
+      res => { 
+        console.log('received ok response from patch request');
+      },
+      error => {
+        console.error('There was an error during the request');
+        console.log(error);
+    });
   }
 
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { UserLoginInterface, UserResetInterface, TokenInterface, ParamInterface, Friend, GameInterface } from '../models/model';
 import { Observable } from 'rxjs';
@@ -11,11 +11,10 @@ export class HttpService {
   constructor(
     private http: HttpClient,
     private router: Router,
-  ) {
-   }
+  ) {}
 
   loginUser (userLogin: UserLoginInterface){
-    const res = this.http.post('api/auth/login', userLogin);
+    const res =  this.http.post('api/auth/login', userLogin);
 
     res.subscribe(data => {
       const res = Object.entries(data)[1];
@@ -30,14 +29,7 @@ export class HttpService {
   }
 
   resetUserProfile(userReset: UserResetInterface) {
-    this.http.patch('api/auth/update', userReset).subscribe(
-      res => { 
-        console.log('received ok response from patch request');
-      },
-      error => {
-        console.error('There was an error during the request');
-        console.log(error);
-      });
+    return this.http.patch('api/auth/update', userReset);
   }
 
   getGames(): Observable<GameInterface> {
