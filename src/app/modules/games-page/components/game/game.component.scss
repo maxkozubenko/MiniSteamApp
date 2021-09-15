@@ -3,11 +3,10 @@
     &-galery {
         display: flex;
         justify-content: center;
-        gap: 10px;
-    }
-
-    &-galery {
         flex-wrap: wrap;
+        gap: 10px;
+        margin-left: 10px;
+        border-left: 3px solid rgb(155, 155, 155);
     }
 
     &-game {
