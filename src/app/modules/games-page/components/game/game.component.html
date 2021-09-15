@@ -1,0 +1,9 @@
+<div class="games-game" *ngFor="let game of games">
+    <h3 class="games-game__name">{{game.name}}</h3>
+    <span class="games-game__price">{{game.price}} UAH</span>
+    <img class="games-game__img" src={{game.img}} alt="Game picture">
+    <div class="games-game__info">
+        <p class="games-game__description">{{game.description}}</p>
+        <button type="button" class="games-game__btn" (click)="addGameUser(game._id)">Add to Library</button>
+    </div>
+</div>
