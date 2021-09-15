@@ -7,19 +7,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpService } from 'src/app/services/http.service';
 
-
 @NgModule({
-  declarations: [
-    ProfileComponent
-  ],
-  imports: [
-    CommonModule,
-    ProfileRoutingModule,
-    SharedModule,
-    ReactiveFormsModule
-  ],
-  providers:[
-    HttpService
-  ]
+    declarations: [ProfileComponent],
+    imports: [CommonModule, ProfileRoutingModule, SharedModule, ReactiveFormsModule],
+    providers: [HttpService],
 })
-export class ProfileModule { }
+export class ProfileModule {}

@@ -6,16 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpService } from 'src/app/services/http.service';
 
 @NgModule({
-  declarations: [
-    LoginComponent
-  ],
-  imports: [
-    CommonModule,
-    LoginRoutingModule,
-    ReactiveFormsModule
-  ],
-  providers:[
-    HttpService
-  ]
+    declarations: [LoginComponent],
+    imports: [CommonModule, LoginRoutingModule, ReactiveFormsModule],
+    providers: [HttpService],
 })
-export class LoginModule { }
+export class LoginModule {}

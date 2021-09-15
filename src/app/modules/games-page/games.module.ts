@@ -7,14 +7,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    GamesComponent
-  ],
-  imports: [
-    CommonModule,
-    GamesRoutingModule,
-    SharedModule,
-    ReactiveFormsModule
-  ]
+    declarations: [GamesComponent],
+    imports: [CommonModule, GamesRoutingModule, SharedModule, ReactiveFormsModule],
 })
-export class GamesModule { }
+export class GamesModule {}

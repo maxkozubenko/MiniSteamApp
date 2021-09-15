@@ -4,16 +4,16 @@ import { GamesGuard } from '../games-page/games.guard';
 import { FriendsComponent } from './friends.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: FriendsComponent,
-    canActivate: [GamesGuard],
-    pathMatch: 'full'
-  }
+    {
+        path: '',
+        component: FriendsComponent,
+        canActivate: [GamesGuard],
+        pathMatch: 'full',
+    },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
 })
-export class FriendsRoutingModule { }
+export class FriendsRoutingModule {}

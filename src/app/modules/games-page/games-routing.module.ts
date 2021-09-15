@@ -3,18 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { GamesComponent } from './games.component';
 import { GamesGuard } from './games.guard';
 
-
 const routes: Routes = [
-  {
-    path: '',
-    component: GamesComponent,
-    canActivate: [GamesGuard],
-    pathMatch: 'full'
-  }
+    {
+        path: '',
+        component: GamesComponent,
+        canActivate: [GamesGuard],
+        pathMatch: 'full',
+    },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
 })
-export class GamesRoutingModule { }
+export class GamesRoutingModule {}

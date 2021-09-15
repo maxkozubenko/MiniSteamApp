@@ -4,16 +4,16 @@ import { GamesGuard } from '../games-page/games.guard';
 import { ProfileComponent } from './profile.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: ProfileComponent,
-    pathMatch: 'full',
-    canActivate: [GamesGuard]
-  }
+    {
+        path: '',
+        component: ProfileComponent,
+        pathMatch: 'full',
+        canActivate: [GamesGuard],
+    },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
 })
-export class ProfileRoutingModule { }
+export class ProfileRoutingModule {}

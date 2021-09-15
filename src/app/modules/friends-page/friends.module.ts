@@ -6,16 +6,8 @@ import { FriendsComponent } from './friends.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
 @NgModule({
-  declarations: [
-    FriendsComponent,
-  ],
-  imports: [
-    CommonModule,
-    FriendsRoutingModule,
-    SharedModule,
-    ReactiveFormsModule
-  ]
+    declarations: [FriendsComponent],
+    imports: [CommonModule, FriendsRoutingModule, SharedModule, ReactiveFormsModule],
 })
-export class FriendsModule { }
+export class FriendsModule {}
