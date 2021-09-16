@@ -49,6 +49,7 @@ export class GamesComponent implements OnInit {
                 console.log('HERE');
                 console.log(this.getGames());
             } else {
+                console.log(`Here 2 ${games}`);
                 this.games = games;
             }
         });
