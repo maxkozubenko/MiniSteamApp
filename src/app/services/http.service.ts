@@ -29,7 +29,7 @@ export class HttpService {
 
     getGamesByTag(param: ParamInterface): Observable<GameInterface> {
         const params = new HttpParams()
-            .set('price', param.price)
+            .set('price', param.price * 9)
             .set('indie', param.indie)
             .set('action', param.action)
             .set('adventure', param.adventure);
