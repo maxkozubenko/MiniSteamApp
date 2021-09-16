@@ -33,6 +33,7 @@ export class GamesComponent implements OnInit {
     }
 
     getGamesByTags(): void {
+        console.log('BY TAGS');
         this.httpService.getGamesByTag(this.myForm.value).subscribe((games) => {
             this.games = Object.values(games);
         });
