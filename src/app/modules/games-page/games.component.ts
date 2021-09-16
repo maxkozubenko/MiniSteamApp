@@ -60,4 +60,10 @@ export class GamesComponent implements OnInit {
             this.games = Object.values(games);
         });
     }
+
+    onChanges(): void {
+        this.myForm.valueChanges.subscribe(val => {
+            this.getGamesByTags();
+        });
+    }
 }
