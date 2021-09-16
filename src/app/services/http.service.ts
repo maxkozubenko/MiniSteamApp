@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import {
     UserLoginInterface,
     UserResetInterface,
@@ -28,10 +28,13 @@ export class HttpService {
     }
 
     getGamesByTag(param: ParamInterface): Observable<GameInterface> {
-        const requestParam = `?price=${param.price * 9}&indie=${param.indie}&action=${
-            param.action
-        }&adventure=${param.adventure}`;
-        return this.http.get<GameInterface>(`api/games/filter${requestParam}`);
+        const params = new HttpParams()
+            .set('price', param.price)
+            .set('indie', param.indie)
+            .set('action', param.action)
+            .set('adventure', param.adventure);
+
+        return this.http.get<GameInterface>(`api/games/filter`, { params });
     }
 
     addGameToUser(gameId: string): Observable<string> {
