@@ -20,13 +20,13 @@ export class LoginComponent {
 
     authUser(): void {
         this.httpService.loginUser(this.myForm.value).subscribe((data) => {
-            const res2 = Object.entries(data)[1];
-            if (res2) {
+            const responce = Object.entries(data)[1];
+            if (responce) {
                 const token = Object.entries(data)[1][1];
                 localStorage.setItem('id_token', token);
                 this.router.navigate(['./games']);
             } else {
-                console.log('Empty');
+                alert(`Error ${data}`);
             }
         });
     }
