@@ -3,11 +3,9 @@
     &-galery {
         min-width: 75%;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         flex-wrap: wrap;
         gap: 10px;
-        margin-right: 10px;
-        border-right: 3px solid rgb(155, 155, 155);
     }
 
     &-game {

@@ -35,7 +35,7 @@
 
     &-library {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         gap: 10px;
     }
 
@@ -43,6 +43,8 @@
         min-width: 25%;
         display: flex;
         flex-flow: column nowrap;
+        margin-left: 10px;
+        border-left: 3px solid rgb(155, 155, 155);
 
         &__titlePrice,
         &__titleTag {
