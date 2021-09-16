@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
 import {
     UserLoginInterface,
     UserResetInterface,
@@ -14,21 +13,10 @@ import { Observable } from 'rxjs';
     providedIn: 'root',
 })
 export class HttpService {
-    constructor(private http: HttpClient, private router: Router) {}
+    constructor(private http: HttpClient) {}
 
     loginUser(userLogin: UserLoginInterface) {
-        const res = this.http.post('api/auth/login', userLogin);
-
-        res.subscribe((data) => {
-            const res2 = Object.entries(data)[1];
-            if (res2) {
-                const token = Object.entries(data)[1][1];
-                localStorage.setItem('id_token', token);
-                this.router.navigate(['./games']);
-            } else {
-                console.log('Empty');
-            }
-        });
+        return this.http.post('api/auth/login', userLogin);
     }
 
     resetUserProfile(userReset: UserResetInterface) {
