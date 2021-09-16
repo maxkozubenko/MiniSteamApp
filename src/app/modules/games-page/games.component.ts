@@ -44,13 +44,12 @@ export class GamesComponent implements OnInit {
 
     getGameByName(): void {
         this.httpService.findGame(this.gameForm.value.name).subscribe((games) => {
-            if (Object.keys(games).length === 0) {
-                this.getGames();
-                console.log('HERE');
-                console.log(this.getGames());
-            } else {
-                console.log(`Here 2 ${games}`);
+            if (Object.keys(games).length >= 1) {
                 this.games = games;
+            } else if (this.gameForm.value.name === '') {
+                this.getGames();
+            } else {
+                this.games = [];
             }
         });
     }
@@ -58,12 +57,6 @@ export class GamesComponent implements OnInit {
     getGames(): void {
         this.httpService.getGames().subscribe((games) => {
             this.games = Object.values(games);
-        });
-    }
-
-    onChanges(): void {
-        this.myForm.valueChanges.subscribe(val => {
-            this.getGamesByTags();
         });
     }
 }
