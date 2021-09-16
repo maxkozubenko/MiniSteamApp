@@ -10,7 +10,7 @@
         <h2 class="games__subtitle">Featured Games</h2>
         <div class="games-library">
             <app-game [games]="games" (addGameUser)="addGameUser($event)"></app-game>
-            <form class="games-filter" [formGroup]="myForm" (onChange)="onChanges()">
+            <form class="games-filter" [formGroup]="myForm" (onChange)="getGamesByTags()">
                 <h2 class="games-filter__titlePrice">Filter by price</h2>
                 <input class="here" type="range" id="price" name="genre" formControlName="price">
                 <label class="games-filter__label games-filter__label_center" for="price">Any Price</label>
