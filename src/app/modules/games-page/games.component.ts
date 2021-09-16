@@ -46,6 +46,8 @@ export class GamesComponent implements OnInit {
         this.httpService.findGame(this.gameForm.value.name).subscribe((games) => {
             if (Object.keys(games).length === 0 && games.constructor === Object) {
                 this.getGames();
+                console.log('HERE');
+                console.log(this.getGames());
             } else {
                 this.games = games;
             }
